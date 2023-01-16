@@ -6,12 +6,11 @@ Authenticate to AWS using the CLI. Provide access key, secret key, us-east-1 for
 aws configure
 ```
 
-cd infra
+At the top level of this repo run these commands to test the terraform. The GitOps pipeline will do the applies.
 
 ```
 terraform init
-terraform plan --var-file="vars/{env}.tfvars"
-terraform apply --var-file="vars/{env}.tfvars" -auto-approve
+terraform plan --var-file="vars/dev.tfvars"
 ```
 
 # Setup backend (optional) #
