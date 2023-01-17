@@ -6,11 +6,13 @@ Authenticate to AWS using the CLI. Provide access key, secret key, us-east-1 for
 aws configure
 ```
 
-At the top level of this repo run these commands to test the terraform. The GitOps pipeline will do the applies.
+At the top level of this repo run these commands to test the terraform. Setting up the GitOps pipeline is optional.
 
 ```
 terraform init
 terraform plan --var-file="vars/dev.tfvars"
+# If you want to test applies locallly, setting up the GitOps is optional
+terraform apply --var-file="vars/dev.tfvars"
 ```
 
 # Setup remote backend (optional) (required for GitOps) #
