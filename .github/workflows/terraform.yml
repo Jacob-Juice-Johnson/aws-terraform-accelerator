@@ -39,6 +39,9 @@ jobs:
     needs: terraform-ci
     runs-on: ubuntu-latest
     environment: dev
+    env: # Sets env variables from our dev environment for plan and apply
+      AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
     defaults:
       run:
         shell: bash
@@ -48,9 +51,9 @@ jobs:
     - name: Terraform Init
       run: terraform init
     - name: Terraform Plan
-      env: # Sets env variables from our dev environment for plan and apply
-        AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+      # env: # Sets env variables from our dev environment for plan and apply
+      #   AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY }}
+      #   AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
       run: terraform plan --var-file="vars/dev.tfvars" -input=false
     - name: Terraform Apply
       # if: github.ref == 'refs/heads/"main"' # && github.event_name == 'push'
