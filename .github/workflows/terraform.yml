@@ -28,9 +28,9 @@ jobs:
     - name: Terraform Init
       run: terraform init
     - name: Terraform Plan
-      # env:
-      #   AWS_ACCESS_KEY_ID: ${{ secrets.CI_AWS_ACCESS_KEY }}
-      #   AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_AWS_SECRET_ACCESS_KEY }}
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.CI_AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_AWS_SECRET_ACCESS_KEY }}
       run: terraform plan --var-file="vars/dev.tfvars" -input=false
 
   terraform-cd-dev:
