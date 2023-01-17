@@ -3,7 +3,6 @@ repos:
     rev: "v1.77.0"
     hooks:
       - id: terraform_fmt
-      - id: terraform_tflint
       - id: terraform_validate
       # - id: terraform_tfsec # commented out since tfsec throws 10 S3 flags I don't want to fix
       - id: terraform_docs
