@@ -1,4 +1,4 @@
-# How to use #
+# How to use terraform locally #
 
 Authenticate to AWS using the CLI. Provide access key, secret key, us-east-1 for the region (or any other region you want to deploy to), and output format if wanted.
 
@@ -6,15 +6,16 @@ Authenticate to AWS using the CLI. Provide access key, secret key, us-east-1 for
 aws configure
 ```
 
-cd infra
+At the top level of this repo run these commands to test the terraform. Setting up the GitOps pipeline is optional.
 
 ```
 terraform init
-terraform plan --var-file="vars/{env}.tfvars"
-terraform apply --var-file="vars/{env}.tfvars" -auto-approve
+terraform plan --var-file="vars/dev.tfvars"
+# If you want to test applies locallly, setting up the GitOps is optional
+terraform apply --var-file="vars/dev.tfvars"
 ```
 
-# Setup backend (optional) #
+# Setup remote backend (optional) (required for GitOps) #
 If you are working on an actualy implementation you should be using remote backends. For a POC implementation you can omit this step.
 
 Login to the AWS account you want tfstate to be stored for a specific environment. This could be a central account or you could create a bucket per environment in the environment specific account. 
