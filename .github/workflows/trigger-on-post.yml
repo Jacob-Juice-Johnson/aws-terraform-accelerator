@@ -9,8 +9,8 @@ jobs:
     name: 'Trigger-on-post'
     runs-on: ubuntu-latest
     env: # Sets env variables from our dev environment for plan and apply
-      AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.CI_AWS_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_AWS_SECRET_ACCESS_KEY }}
     defaults:
       run:
         shell: bash
