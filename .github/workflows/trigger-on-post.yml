@@ -11,6 +11,7 @@ jobs:
     env: # Sets env variables from our dev environment for plan and apply
       AWS_ACCESS_KEY_ID: ${{ secrets.CI_AWS_ACCESS_KEY }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.CI_AWS_SECRET_ACCESS_KEY }}
+      TF_VAR_test_var_inject: ${{ github.event.client_payload.test_var_inject }}
     defaults:
       run:
         shell: bash
