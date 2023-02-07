@@ -1,13 +1,11 @@
 name: 'Terraform GitOps Workflow'
 
-on: workflow_dispatch
-  # push:
-  #   branches: [ "main" ]
-  # pull_request:
-  #   branches: [ "main" ]
-
-permissions:
-  contents: read
+on: 
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   terraform-ci:
